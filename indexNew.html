@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Tabs</title>
+    <style>
+        .row {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .column {
+            display: block;
+            justify-content: space-around;
+        }
+
+        /* Style for the tab container */
+        .tab-container {
+            display: block;
+        }
+
+        /* Style for the tab buttons */
+        .tab-button {
+            /* background-color: rgb(200, 166, 194); */
+            border:rgb(207, 141, 10);
+            width: 100%;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: block;
+        }
+
+        /* Style for the tab content */
+        .tab-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="row" style="height: 10%;"></div>
+    <div class="row" style="height: 70%;">
+        <div class="column" style="width: 20%;">
+            <!-- Tab Buttons -->
+            <button class="tab-button" onclick="openTab('tab1')">Dashboard</button>
+            <button class="tab-button" onclick="openTab('tab2')">New Profile</button>
+            <button class="tab-button" onclick="openTab('tab3')">Manage Profiles</button>
+            <button class="tab-button" onclick="openTab('tab4')">Find Matches</button>
+        </div>
+        <div class="row" style="width: 80%;">
+            <!-- Tab Content -->
+            <div class="tab-content" id="tab1">
+                <h2>Tab 1 Content</h2>
+                <p>This is the content for Tab 1.</p>
+            </div>
+            
+            <div class="tab-content" id="tab2">
+                <h2>Tab 2 Content</h2>
+                <p>This is the content for Tab 2.</p>
+            </div>
+            
+            <div class="tab-content" id="tab3" style="display: none;">
+                <h2>Tab 3 Content</h2>
+                <p>This is the content for Tab 3.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            // Get all elements with class="tab-content" and hide them
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = "none";
+            }
+
+            // Show the specific tab content
+            document.getElementById(tabName).style.display = "block";
+        }
+
+        // Initially, show the first tab
+        openTab("tab1");
+    </script>
+</body>
+</html>
